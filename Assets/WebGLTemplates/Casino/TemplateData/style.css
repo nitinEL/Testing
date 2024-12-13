@@ -1,0 +1,330 @@
+:root {
+  --naviBlue: #363f5b;
+  --fontFamily: "Montserrat", sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+#Rotate {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+#unity-container {
+  position: absolute;
+  display: none;
+}
+
+#unity-container.unity-desktop {
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+#unity-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+#unity-container.unity-mobile {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#unity-canvas {
+  background: #231f20;
+}
+
+.unity-mobile #unity-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#unity-loading-bar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#unity-logo {
+  width: 518px;
+  height: 378px;
+  background: url("unity-logo-dark.png") no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+#unity-progress-bar-empty {
+  width: 513px;
+  height: 67px;
+  background: url("progress-bar-empty-dark.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  margin-top: 30px;
+  margin: 100px auto 0;
+}
+
+#unity-progress-bar-full {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  width: 0;
+  height: 30px;
+  background: url("progress-bar-full-dark.png") no-repeat;
+  background-size: 100% 100%;
+  max-width: 482px;
+}
+
+#unity-footer {
+  position: relative;
+}
+
+.unity-mobile #unity-footer {
+  display: none;
+}
+
+#unity-webgl-logo {
+  float: left;
+  width: 204px;
+  height: 38px;
+  background: url("webgl-logo.png") no-repeat center;
+}
+
+#unity-build-title {
+  float: right;
+  margin-right: 10px;
+  line-height: 38px;
+  font-family: arial;
+  font-size: 18px;
+}
+
+#unity-fullscreen-button {
+  float: right;
+  width: 38px;
+  height: 38px;
+  background: url("fullscreen-button.png") no-repeat center;
+}
+
+#unity-warning {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%);
+  background: white;
+  padding: 10px;
+  display: none;
+}
+.logo-image {
+  margin: 60px 100px;
+  width: 75vmin;
+  height: auto;
+}
+#StartGame {
+  z-index: 5;
+}
+.background {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#FullScreen {
+  display: none;
+  z-index: 4;
+}
+
+.StartBtn {
+  box-shadow: 0 0 40px 40px linear-gradient(to bottom right, #ff8c00, #ff00ff) inset, 0 0 0 0 #3498db;
+  transition: all 300ms ease-in-out;
+  background: #242445;
+
+  &:hover,
+  &:focus {
+    background-color: white;
+    box-shadow: 0px 0px 0px 0px #0000 inset;
+    border: 2px solid var(--naviBlue);
+  }
+}
+
+.btn {
+  box-sizing: border-box;
+  appearance: none;
+
+  background-color: transparent;
+  border: 2px solid transparent;
+
+  box-shadow: 0px 0px 100px 100px var(--naviBlue) inset;
+
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px 40px;
+
+  font-size: 32px;
+  text-decoration: none;
+  text-wrap: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  line-height: 1;
+
+  font-family: var(--fontFamily);
+  font-weight: 700;
+
+  animation: BtnAnimation 1.5s infinite ease-in-out 1s;
+
+  &:not(:hover, :focus) {
+    animation-play-state: running;
+    animation-delay: 1s;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--naviBlue);
+    outline: 0;
+    animation-play-state: paused;
+  }
+}
+
+@keyframes BtnAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (min-height: 480px) and (orientation: landscape) {
+  .logo-image {
+    margin: 0px 100px;
+    width: 80vmin;
+  }
+  .btn {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .btn {
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .btn {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .btn {
+    font-size: 36px;
+  }
+}
+@media only screen and (max-device-width: 1027px) and (orientation: landscape) {
+  .background {
+    flex-direction: row;
+  }
+
+  .logo-image {
+    margin: 0px 60px;
+    width: 105vmin;
+  }
+
+  .btn {
+    font-size: 24px;
+  }
+}
+
+/* Breakpoint: Below 768px */
+@media (max-width: 768px) {
+  #unity-logo {
+    width: 414px;
+    height: 302px;
+  }
+
+  #unity-progress-bar-empty {
+    width: 387px;
+    height: 50px;
+    margin: 80px auto 0;
+  }
+
+  #unity-progress-bar-full {
+    max-width: calc(100% - 26px); /* Adjust for smaller empty bar */
+    height: 21px;
+    top: 16px;
+    left: 12px; /* Adjust to match reduced empty bar width */
+  }
+}
+
+/* Breakpoint: Below 420px */
+@media (max-width: 420px) {
+  #unity-logo {
+    width: 311px;
+    height: 227px;
+  }
+
+  #unity-progress-bar-empty {
+    width: 290px;
+    height: 38px;
+    margin: 60px auto 0;
+  }
+
+  #unity-progress-bar-full {
+    max-width: calc(100% - 20px);
+    height: 16px;
+    top: 12px;
+    left: 9px;
+  }
+}
+
+/* Breakpoint: Below 375px */
+@media (max-width: 375px) {
+  #unity-logo {
+    width: 259px;
+    height: 189px;
+  }
+
+  #unity-progress-bar-empty {
+    width: 240px;
+    height: 30px;
+    margin: 50px auto 0;
+  }
+
+  #unity-progress-bar-full {
+    max-width: calc(100% - 17px);
+    height: 12px;
+    top: 10px;
+    left: 8px;
+  }
+}
